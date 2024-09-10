@@ -9,3 +9,4 @@ while (iteration < str.length) {
 for (let iteration = 0; iteration < str.length; iteration++) {
   console.log(str[iteration], iteration);
 }
+console.log(iteration);
