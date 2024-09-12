@@ -2,9 +2,11 @@ const obj = {
   name: "Anmol",
   age: 19,
   "is maried": false,
+  obj2: { key1: "value1" },
 };
 
 console.log(obj);
+console.log(obj.obj2.key1);
 
 // getting the data form objects
 // .(dot) Notation
@@ -15,8 +17,9 @@ console.log(obj.address);
 // [] Notation
 console.log(obj["is maried"]);
 
-// setting the data of objects (if we use key that already exist, that their value just gonna be updated)
+// setting the data to object (if we use key that already exist, than their value just gonna be updated)
 // .(dot) Notation
+obj.name = "Tanpreet";
 obj.address = "California";
 
 // [] Notation
