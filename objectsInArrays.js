@@ -1,5 +1,5 @@
 // Real world data
-// [{},{},{},{},{},{}]
+// [{key1:"value1"}, {}, {}, {}]
 
 const users = [
   {
@@ -507,4 +507,14 @@ const users = [
 // users[0].firstName = "Anmol";
 // users[0].lastName = "Singh";
 
-console.log(users[0]);
+// for (let i = 0; i < users.length; i++) {
+//   const user = users[i];
+//   console.log(user.firstName, user.lastName);
+// }
+
+for (let i = 0; i < users.length; i++) {
+  const user = users[i];
+  if (user.employed) {
+    console.log(user.id, user.firstName, user.lastName);
+  }
+}
