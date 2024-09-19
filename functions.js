@@ -57,6 +57,7 @@ const camalize = (str) => {
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
 
+    // we have to keep "hello" as it is thats why condition is i >= 1
     if (i >= 1) {
       //  let's say for now word is "name"
 
