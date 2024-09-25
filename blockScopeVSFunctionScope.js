@@ -25,10 +25,28 @@ if (true) {
 // }
 // console.log(greeting); // not defined
 
-if (true) {
-  var firstName = "Sandeep";
+// exercise 1:-
+// if (true) {
+//   var firstName = "Sandeep";
+// }
+
+// if (true) {
+//   console.log(firstName); // Sandeep
+// }
+
+// exercise 2:-
+function x() {
+  if (true) {
+    var firstName = "Sandeep";
+    console.log(firstName);
+  }
+
+  var firstName = "Manpreet";
+  if (true) {
+    console.log(firstName);
+  }
+  console.log(firstName);
 }
 
-if (true) {
-  console.log(firstName); // Sandeep
-}
+x();
+console.log(firstName);
