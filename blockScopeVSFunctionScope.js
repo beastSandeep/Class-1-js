@@ -12,7 +12,7 @@ if (true) {
 }
 // console.log(a); // not defined
 // console.log(b);// not defined
-// console.log(c); // 15 (bad thing)
+//console.log(c); // 15 (bad thing)
 //const c = 13; // gives you error because c has already been declared inside if-block 😎
 
 // 2. Function Scope
@@ -38,15 +38,15 @@ if (true) {
 function x() {
   if (true) {
     var firstName = "Sandeep";
-    console.log(firstName);
+    console.log(firstName); // Sandeep
   }
 
   var firstName = "Manpreet";
   if (true) {
-    console.log(firstName);
+    console.log(firstName); // Manpreet
   }
-  console.log(firstName);
+  console.log(firstName); // Manpreet
 }
 
 x();
-console.log(firstName);
+console.log(firstName); // error: undefined
