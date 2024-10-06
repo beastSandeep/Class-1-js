@@ -1,21 +1,21 @@
 // We already learnt about functions, then we can explore this side of arrays
 // These methods takes a function as a value, and these functions called callback functions(CB)
-// CB can be made out of method as well as we can create anonymous CB inside method
+// CB can be made out from method as well as we can create anonymous CB inside method
 // Every CB's parameter are first array value and second is index.
 
 // -----------------------------------------------------------------------------
 
 // So we are going to explore ten methods of arrays that are depended on callbacks
 
-// 1. forEach()
-// 2. map()
-// 3. filter()
-// 4. reduce()
-// 5. find()
-// 6. every()
-// 7. some()
-// 8. sort()
-// 9. fill()
+// 1.  forEach()
+// 2.  map()
+// 3.  filter()
+// 4.  reduce()
+// 5.  find()
+// 6.  every()
+// 7.  some()
+// 8.  sort()
+// 9.  fill()
 // 10. splice()
 
 // -----------------------------------------------------------------------------
@@ -42,7 +42,7 @@
 
 // -----------------------------------------------------------------------------
 
-// 2. map() :- map used when we need to create an array form existing array and also we want to chagne in arraya. map's callbacks always returns somthing and it also not mutate(change) original array. Then map returns modified new array
+// 2. map() :- map used when we need to create an array form existing array and also we want to chagne in array. map's callbacks always returns somthing and it also not mutate(change) original array. Then map returns modified new array
 
 // const arr = [1, 3, 4, 6, 2, 7, 3, 0, 9, 8, 5];
 
@@ -106,10 +106,12 @@
 
 // const shippingTax = 15;
 
-// const totalPrice = userCart.reduce((acc, val) => {
-//   const tax = (val.price * val.taxRates) / 100;
-//   return acc + val.price + tax;
+// const totalPrice = userCart.reduce((acc, obj) => {
+//   const tax = (obj.price * obj.taxRates) / 100;
+//   return acc + obj.price + tax;
 // }, shippingTax);
+
+// if we not provide initial value of accummulator than it will be array's first item
 
 // console.log(totalPrice);
 // accummulator     currentValue(value + tax)      return
@@ -119,3 +121,74 @@
 //    1666.35         1350 + 60.75 =  1410.75      3077.1 (final total price)
 
 // -----------------------------------------------------------------------------
+
+// 5. find() :- find's callback should be retrun boolean value, if it's returns "true" then that item will be returned out otherwise if "false" then undefined will be returned, it also not mutate(change) original array
+
+// this method is similar to filter(), but one diffrence is this only give us sigle value where condition meets true, but filter() returnes an array of condition satisfied elements
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const lessThanFive = arr.find((value) => value > 5);
+// console.log(lessThanFive);
+
+// const users = [
+//   { id: 2938745, name: "Manni", age: 18 },
+//   { id: 9567854, name: "Tannu", age: 19 },
+//   { id: 4567343, name: "Arshu", age: 14 },
+//   { id: 8234523, name: "Mandy", age: 26 },
+// ];
+
+// const user = users.find((user) => user.id === 9567854);
+// console.log(user);
+
+// -----------------------------------------------------------------------------
+
+// 6. every() :- every's callback should be retrun boolean value, if it's returns "true" for all items then "true" will be returned out otherwise if "false" then "false" will be returned, it also not mutate(change) original array
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const isAllElementsLessThan11 = arr.every((value) => value < 11);
+// console.log(isAllElementsLessThan11);
+
+// const users = [
+//   { id: 2938745, name: "Manni", age: 18 },
+//   { id: 9567854, name: "Tannu", age: 19 },
+//   { id: 4567343, name: "Arshu", age: 14 },
+//   { id: 8234523, name: "Mandy", age: 26 },
+// ];
+
+// const isAllUserAbove18 = users.every((user) => user.age >= 18);
+// console.log(isAllUserAbove18);
+
+// -----------------------------------------------------------------------------
+
+// 7. some() :- some's callback should be retrun boolean value, if it's returns "true" for just one item then "true" will be returned out otherwise if "false" then "false" will be returned, it also not mutate(change) original array
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const isOneOfTheElementsGreaterThanFive = arr.some((value) => value > 5);
+// console.log(isOneOfTheElementsGreaterThanFive);
+
+// const users = [
+//   { id: 2938745, name: "Manni", age: 18 },
+//   { id: 9567854, name: "Tannu", age: 19 },
+//   { id: 4567343, name: "Arshu", age: 14 },
+//   { id: 8234523, name: "Mandy", age: 26 },
+// ];
+
+// const isOneOfTheUserBelow18 = users.some((user) => user.age < 10);
+// console.log(isOneOfTheUserBelow18);
+
+// -----------------------------------------------------------------------------
+
+// 8. sort()
+
+// -----------------------------------------------------------------------------
+
+// 9. fill() :- fill is just used for filling whole array with same value, this method mutate original array
+
+// if we want fixed length array and filled with same value
+const newArray = new Array(10).fill("waheguru"); // 10 lengthed "waheguru" filled array
+console.log(newArray);
+
+// if we want to chagne array's item
+const myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+myArr.fill("hi", 3, 7); // form index 3 to 7 fill "hi"
+console.log(myArr);
