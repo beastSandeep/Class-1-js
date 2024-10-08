@@ -178,17 +178,88 @@
 
 // -----------------------------------------------------------------------------
 
-// 8. sort()
+// 8. sort() :- sort() is just used for sorting array, if we user only direct sort() on array we will get accending orderd array according to ASCII Table, if we want to sort array according to it's value than we have to put a CB inside sort(), and it's paramets are jsut first and second items of an array and CB has to return a diffrence in numbers, (a-b) for accending , (b-a) for decending
 
+// ASCII Table
+// characters : numbering
+// "0" : 48
+
+// "9" : 57
+// ":" : 58
+// ";" : 59
+// "<" : 60
+// "=" : 61
+// ">" : 62
+// "?" : 63
+// "@" : 64
+// "A" : 65
+
+// "Z" : 90
+// "[" : 91
+// "\" : 92
+// "]" : 93
+// "^" : 94
+// "-" : 95
+// "`" : 96
+// "a" : 97
+
+// "z" : 122
+// "{" : 123
+// "|" : 124
+// "}" : 125
+
+// const userNames = ["saj", "pan", "abd", "abc", "hello", "ABC", "Hello"];
+
+// userNames.sort();
+// console.log(userNames);
+
+// const numbers = [5, 9, 1200, 400, 3000];
+// numbers.sort();
+// console.log(numbers);
+
+// const arr = [2, 4, 3, 8, 1, 0, 4, 5];
+// arr.sort((a, b) => b - a);
+// console.log(arr);
+
+// const users = [
+//   { id: 6938745, name: "Manni", age: 18 },
+//   { id: 9567854, name: "Tannu", age: 19 },
+//   { id: 4567343, name: "Arshu", age: 14 },
+//   { id: 1234523, name: "Mandy", age: 26 },
+// ];
+
+// users.sort((obj1, obj2) => obj1.id - obj2.id);
+// console.log(users);
+
+// const userCart = [
+//   { produtId: 7634, price: 18, name: "sumsung-earphones", taxRates: 2.5 },
+//   { produtId: 9780, price: 95, name: "air-pods", taxRates: 1.5 },
+//   { produtId: 1528, price: 1499, name: "iphone-16", taxRates: 2.5 },
+//   { produtId: 5628, price: 1350, name: "mac-pro", taxRates: 4.5 },
+// ];
+
+// const lowToHigh = userCart.slice(0).sort((a, b) => a.price - b.price);
+// console.log(lowToHigh);
+
+// const highToLow = userCart.slice(0).sort((a, b) => b.price - a.price);
+// console.log(highToLow);
 // -----------------------------------------------------------------------------
 
 // 9. fill() :- fill is just used for filling whole array with same value, this method mutate original array
 
 // if we want fixed length array and filled with same value
-const newArray = new Array(10).fill("waheguru"); // 10 lengthed "waheguru" filled array
-console.log(newArray);
+// const newArray = new Array(10).fill("waheguru"); // 10 lengthed "waheguru" filled array
+// console.log(newArray);
 
 // if we want to chagne array's item
-const myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-myArr.fill("hi", 3, 7); // form index 3 to 7 fill "hi"
-console.log(myArr);
+// const myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// myArr.fill("hi", 3, 7); // form index 3 to 7 fill "hi"
+// console.log(myArr);
+
+// -----------------------------------------------------------------------------
+
+// 10. splice(startIndex, deleteCount, ...value) :- splice is just used for deleting array's item and inserting multiple values anywhere in the array, unlike pop()/push()/shift()/unshift(), this method mutate original array
+
+// const arr = ["item 1", "item 2", "item 3", "item 4"];
+// arr.splice(1, 1, "item 23", "item 12");
+// console.log(arr);
