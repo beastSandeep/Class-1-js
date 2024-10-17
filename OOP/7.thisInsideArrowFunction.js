@@ -1,4 +1,4 @@
-// inside arrow function "this" always a window object, doesn't matter where your function is present
+// inside arrow function "this" always been a window object, doesn't matter where your function is present
 
 const user = {
   fistName: "Mandeep",

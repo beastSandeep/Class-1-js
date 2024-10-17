@@ -49,7 +49,7 @@ function printDetail() {
 
 // 3. bind()
 
-// it's job is to bind "this" to a function, maily when we are shipping a function to another place, it just bind function to "this" not calls(run) a function itself 😎
+// it's job is to bind "this" to a function, mainly when we are shipping a function to another place, it just bind function to "this" not calls(run) a function itself 😎
 
 const user4 = {
   fistName: "Arsh",
