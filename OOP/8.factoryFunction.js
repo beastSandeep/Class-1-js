@@ -51,7 +51,7 @@
 //  1 :- All properties are uniqe to users but all methods are same and methods are taking access space in memory, so that we need to solve this problem
 // we just need to create all our methods outside of factory function and later we just need to pass refrence our methods
 
-// const userMehods = {
+// const userMethods = {
 //   about: function () {
 //     return `${this.name} is ${this.age} years old`;
 //   },
@@ -68,8 +68,9 @@
 //   user.name = userName;
 //   user.email = userMail;
 //   user.age = userAge;
-//   user.about = userMehods.about;
-//   user.is18 = userMehods.is18;
+
+//   user.about = userMethods.about;
+//   user.is18 = userMethods.is18;
 
 //   // step : 3
 //   return user;
@@ -83,10 +84,10 @@
 // -----------------
 // -----------------
 
-//  2 :- if we'll be having a hunderds of methods then putting inside every user, that's a painful and time consuming work.
-// so that we can link all the methods to user's proto, then if we use those methods JavaScript automatically seach user's proto and it will find it
+//  2 :- If we'll be having a hunderds of methods then putting inside every user, that's a painful and time consuming work.
+// so that we can link all the methods to user's proto, then if we use those methods JavaScript automatically search user's proto and it will be finded
 
-// const userMehods = {
+// const userMethods = {
 //   about: function () {
 //     return `${this.name} is ${this.age} years old`;
 //   },
@@ -97,9 +98,9 @@
 
 // function createUser(userName, userMail, userAge) {
 //   // step : 1
-//   const user = Object.create(userMehods);
+// const user = Object.create(userMethods); // setting user objects's proto to userMethods 😄
 
-//   // step : 2
+//   //   // step : 2
 //   user.name = userName;
 //   user.email = userMail;
 //   user.age = userAge;
@@ -116,12 +117,12 @@
 // -----------------
 // -----------------
 
-//  3 :- userMehods will take it's own space in memory, we can optimise it also.
-// We can use function's empty object(protoype) as a mehod holder then we can link it to user as a proto.
+//  3 :- userMethods will take it's own space in memory, we can optimise it also.
+// We can use function's empty object(prototype) as a method holder then we can link it to user as a proto.
 
 function createUser(userName, userMail, userAge) {
   // step : 1
-  const user = Object.create(createUser.prototype);
+  const user = Object.create(createUser.prototype); // setting user objects's proto to function's prototype 😎
 
   // step : 2
   user.name = userName;
