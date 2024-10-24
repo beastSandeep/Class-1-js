@@ -98,9 +98,9 @@
 
 // function createUser(userName, userMail, userAge) {
 //   // step : 1
-// const user = Object.create(userMethods); // setting user objects's proto to userMethods 😄
+//   const user = Object.create(userMethods); // setting user objects's proto to userMethods 😄
 
-//   //   // step : 2
+//   // step : 2
 //   user.name = userName;
 //   user.email = userMail;
 //   user.age = userAge;
@@ -132,6 +132,7 @@ function createUser(userName, userMail, userAge) {
   // step : 3
   return user;
 }
+console.log(createUser.prototype); // {}
 
 createUser.prototype.about = function () {
   return `${this.name} is ${this.age} years old`;
@@ -139,6 +140,7 @@ createUser.prototype.about = function () {
 createUser.prototype.is18 = function () {
   return this.age >= 18;
 };
+console.log(createUser.prototype); // {about : fn(){} , is18 : fn(){}}
 
 const user5 = createUser("Manpreet", "manni.singh@wool.com", 19);
 console.log(user5);

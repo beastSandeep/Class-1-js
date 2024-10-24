@@ -5,6 +5,9 @@
 // 3. In last it return that object
 
 function Person() {
+  //1. {} => this
+  //2. {}.__proto__ => Person.prototype
+  //3. return {}
   this.name = "Sandeep";
   this.age = 24;
 }
