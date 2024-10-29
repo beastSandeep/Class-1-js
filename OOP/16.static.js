@@ -1,3 +1,6 @@
+// we can create static mehtods also by using static keyword
+// static methods are accessible on Class, it means static methods are called upon Class like Object.create()
+
 class Person {
   constructor(fname, lname) {
     this.firstName = fname;
