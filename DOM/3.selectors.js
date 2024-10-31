@@ -44,3 +44,11 @@ const paragraphs = document.querySelectorAll("p");
 
 const inputs = document.getElementsByName("gender");
 console.log(inputs);
+
+// -----------------------------------------------------------
+
+// HTMLCollection -> for of loop, simple for loop can work on it
+// NodeList -> for of loop, simple for loop, forEach() method can work on it
+
+// we can convert any of these in actual array like this
+// Array.from(HTMLCollection / NodeList)
