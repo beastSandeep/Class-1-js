@@ -19,9 +19,28 @@ const classElements = document.getElementsByClassName("amz");
 
 // -----------------------------------------------------------
 
-// 3. getElementsByTagName() :- it takes a string of tag name and returns an HTMLCollection of elements. (HTMLCollection is array like data type so we can also check .length and indexing)
+// 3. getElementsByTagName(tagName) :- it takes a string of tag name and returns an HTMLCollection of elements. (HTMLCollection is array like data type so we can also check .length and indexing)
 
 const tagElements = document.getElementsByTagName("p");
 // console.log(tagElements);
 
 // -----------------------------------------------------------
+
+// 4. querySelector() :- it takes a string of HTMLElementTagNameMap (means we need to put # before id and . before a class name, for tag names nothing to put extra) and returns a single and first element.
+
+const heading = document.querySelector("#main");
+// console.dir(heading);
+
+// -----------------------------------------------------------
+
+// 5. querySelectorAll() :- it takes a string of HTMLElementTagNameMap (means we need to put # before id and . before a class name, for tag names nothing to put extra, in the nutshell we can use all our css selectors as well) and returns a NodeList (NodeList is array like data type so we can also check .length and indexing) of elements.
+
+const paragraphs = document.querySelectorAll("p");
+// console.log(paragraphs);
+
+// -----------------------------------------------------------
+
+// 6. getElementsByName(name) :- it takes a string of name attribute value and returns a NodeList (NodeList is array like data type so we can also check .length and indexing) of elements.
+
+const inputs = document.getElementsByName("gender");
+console.log(inputs);
