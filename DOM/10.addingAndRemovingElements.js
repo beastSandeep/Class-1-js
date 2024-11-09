@@ -54,12 +54,28 @@ list.before(li);
 </ul> */
 
 // -----------------------------------------------------------
-
 // Removing elements
 
 console.log(list.children);
 
 // remove():- we can remove elements from DOM
 list.children[1].remove();
-
 console.log(list.children);
+
+// -----------------------------------------------------------
+// -----------------------------------------------------------
+
+// adding by insertAdjacentElement(where, element) :-
+
+// where(first argument) is going to be a string it has 4 values:-
+// 1. beforebegin
+// 2. afterbegin
+// 3. beforeend
+// 4. afterend
+
+li.innerText = "task 123";
+
+// list.insertAdjacentElement("beforebegin", li);
+// list.insertAdjacentElement("afterbegin", li);
+// list.insertAdjacentElement("beforeend", li);
+list.insertAdjacentElement("afterend", li);
