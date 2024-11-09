@@ -19,3 +19,14 @@ const btn = document.querySelector("#btn");
 btn.addEventListener("click", function () {
   console.log("hello");
 });
+
+const btns = document.querySelectorAll(".my-buttons button");
+console.log(btns);
+
+for (let i = 0; i < btns.length; i++) {
+  const btn = btns[i];
+
+  btn.addEventListener("click", function () {
+    console.log(`button clicked ${i + 1}`);
+  });
+}
