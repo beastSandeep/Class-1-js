@@ -20,6 +20,8 @@ btn.addEventListener("click", function () {
   console.log("hello");
 });
 
+// ---------- multiple eventListeners
+
 const btns = document.querySelectorAll(".my-buttons button");
 console.log(btns);
 
@@ -30,3 +32,12 @@ for (let i = 0; i < btns.length; i++) {
     console.log(`button clicked ${i + 1}`);
   });
 }
+
+// ---------- "this" inside eventListener handles
+
+// "this" is always going to be an element which is responsible for event fire
+// "this" inside arrow functions is always goint to be window object
+btn.addEventListener("click", function () {
+  // this => btn element
+  console.log(this.innerText);
+});
