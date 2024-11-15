@@ -9,7 +9,7 @@ console.log(Math.ceil(2.4)); // 3
 console.log(Math.min(3, 5, 8)); // 3
 console.log(Math.max(3, 5, 8)); // 8
 
-console.log(Math.random()); // 0.4051602187398238 // 0.99 * 100
+console.log(Math.random()); // 0.4051602187398238
 
 function range(min, max) {
   const underMax = Math.random() * max; // always less than max
@@ -19,15 +19,15 @@ function range(min, max) {
   return Math.max(min, roundedUnderMax);
 }
 
-// let str = "";
-
 // for (let index = 0; index < 50; index++) {
-//   str += String(range(59, 60)) + " ";
+//   console.log(range(59, 60));
 // }
-// console.log(str);
 
 // make a function to generate an OTP (6 digit)
 // funtion should look like
-function OTPGen(digitLength) {}
-
-console.log(range(100000, 999999));
+function OTPGen() {
+  return Math.floor(Math.random() * 900000 + 100000);
+}
+for (let index = 0; index < 50; index++) {
+  console.log(OTPGen());
+}
