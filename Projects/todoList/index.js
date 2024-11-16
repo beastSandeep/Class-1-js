@@ -8,7 +8,8 @@ function taskCreater(msg) {
   const task = document.createElement("div");
   task.classList.add("task");
   const p = document.createElement("p");
-  p.innerText = msg;
+  p.innerText = msg.length > 32 ? msg.substring(0, 32) + "..." : msg;
+  p.setAttribute("title", msg);
   task.append(p);
 
   const button = document.createElement("button");
