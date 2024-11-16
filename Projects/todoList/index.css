@@ -36,7 +36,7 @@
   height: 500px;
   border-radius: 10px;
   filter: drop-shadow(2px 2px 10px black);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .form {
