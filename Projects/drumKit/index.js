@@ -5,8 +5,8 @@ const numOfButtons = document.querySelectorAll(".set .drum").length;
 for (i = 0; i < numOfButtons; i++) {
   document
     .querySelectorAll(".set .drum")
-    [i].addEventListener("click", function () {
-      const buttonInnerHtml = this.innerHTML;
+    [i].addEventListener("click", function (e) {
+      const buttonInnerHtml = e.target.innerHTML;
 
       makeSound(buttonInnerHtml);
     });
@@ -50,6 +50,6 @@ function makeSound(key) {
       break;
 
     default:
-      console.log(buttonInnerHtml);
+      console.log("default");
   }
 }
