@@ -1,15 +1,13 @@
 //Detecting button press
 
-const numOfButtons = document.querySelectorAll(".set .drum").length;
+const buttons = document.querySelectorAll(".set .drum");
 
-for (i = 0; i < numOfButtons; i++) {
-  document
-    .querySelectorAll(".set .drum")
-    [i].addEventListener("click", function (e) {
-      const buttonInnerHtml = e.target.innerHTML;
+for (i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function (e) {
+    const buttonInnerHtml = e.target.innerHTML;
 
-      makeSound(buttonInnerHtml);
-    });
+    makeSound(buttonInnerHtml);
+  });
 }
 
 //Detecting Keyboard press
