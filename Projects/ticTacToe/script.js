@@ -23,6 +23,7 @@ for (let i = 0; i < btns.length; i++) {
         turnMessage.innerText = "X's turn";
       }
 
+      e.target.classList.add("clicked");
       clicked[i] = true;
       turn = !turn;
 

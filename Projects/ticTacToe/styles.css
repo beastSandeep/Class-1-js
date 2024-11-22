@@ -54,3 +54,7 @@ body {
   margin-bottom: 20px;
   font-size: 20px;
 }
+
+.clicked {
+  cursor: not-allowed;
+}
