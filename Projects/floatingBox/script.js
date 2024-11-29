@@ -2,6 +2,7 @@ const container = document.getElementById("container");
 const box = document.getElementById("box");
 
 let containerRect = container.getBoundingClientRect();
+
 let boxRect = box.getBoundingClientRect();
 
 let posX = 0;
@@ -53,8 +54,8 @@ document.addEventListener(
 );
 
 box.addEventListener("dragend", (e) => {
-  let x = e.clientX - boxRect.width;
-  let y = e.clientY - boxRect.height;
+  let x = Math.round(e.clientX - boxRect.width / 2 - containerRect.left);
+  let y = Math.round(e.clientY - boxRect.height / 2 - containerRect.top);
 
   if (x < 0) {
     x = 0;
