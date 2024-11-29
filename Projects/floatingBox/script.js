@@ -41,3 +41,37 @@ document.addEventListener("keydown", (e) => {
 window.addEventListener("resize", function () {
   containerRect = container.getBoundingClientRect();
 });
+
+// we are preventing default dined beghavior of dragover
+document.addEventListener(
+  "dragover",
+  function (event) {
+    // prevent default to allow drop
+    event.preventDefault();
+  },
+  false
+);
+
+box.addEventListener("dragend", (e) => {
+  let x = e.clientX - boxRect.width;
+  let y = e.clientY - boxRect.height;
+
+  if (x < 0) {
+    x = 0;
+  }
+  if (x > containerRect.width) {
+    x = Math.floor(containerRect.width) - boxRect.width;
+  }
+
+  if (y < 0) {
+    y = 0;
+  }
+  if (y > containerRect.height) {
+    y = Math.floor(containerRect.height) - boxRect.height;
+  }
+
+  box.style.left = `${x}px`;
+  box.style.top = `${y}px`;
+
+  box.innerText = `${x}, ${y}`;
+});
