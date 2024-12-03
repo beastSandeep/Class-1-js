@@ -27,10 +27,9 @@ function createStar(x, y) {
   clonedStarSVG.style.fill = `rgb(${ranNum()},${ranNum()},${ranNum()})`;
   star.append(clonedStarSVG);
 
-  star.style.animation = `rotate${ranNum(
-    3,
-    1
-  )} 1500ms cubic-bezier(0,-0.55,.5,.43) forwards`;
+  star.style.animation = `rotate${
+    Math.floor(Math.random() * 3) + 1
+  } 1500ms cubic-bezier(0,-0.55,.5,.43) forwards`;
   document.body.append(star);
 
   setTimeout(() => {
