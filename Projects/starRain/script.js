@@ -16,6 +16,8 @@ function createGlow(x, y) {
   }, 100);
 }
 
+let hue = 0;
+
 function createStar(x, y) {
   const star = document.createElement("div");
   star.classList.add("star");
@@ -24,7 +26,10 @@ function createStar(x, y) {
 
   const clonedStarSVG = starSVG.cloneNode(true);
   clonedStarSVG.style.width = `${ranNum(30, 15)}px`;
-  clonedStarSVG.style.fill = `rgb(${ranNum()},${ranNum()},${ranNum()})`;
+
+  // clonedStarSVG.style.fill = `rgb(${ranNum()},${ranNum()},${ranNum()})`;
+  clonedStarSVG.style.fill = `hsl(${hue}, 100%, 50%)`;
+  hue += 10;
   star.append(clonedStarSVG);
 
   star.style.animation = `rotate${
