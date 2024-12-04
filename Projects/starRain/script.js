@@ -37,7 +37,24 @@ function createStar(x, y) {
   }, 1500);
 }
 
+let oldPosition = { x1: 0, y1: 0 };
+let currentPosition = { x2: 0, y2: 0 };
+
 window.addEventListener("mousemove", (e) => {
+  currentPosition.x2 = e.clientX;
+  currentPosition.y2 = e.clientY;
+
   createGlow(e.clientX, e.clientY);
-  createStar(e.clientX, e.clientY);
+
+  const dist = Math.sqrt(
+    (currentPosition.x2 - oldPosition.x1) ** 2 +
+      (currentPosition.y2 - oldPosition.y1) ** 2
+  );
+
+  if (dist > 30) {
+    createStar(e.clientX, e.clientY);
+
+    oldPosition.x1 = e.clientX;
+    oldPosition.y1 = e.clientY;
+  }
 });
