@@ -1,6 +1,11 @@
 const svg = document.getElementById("clock");
 svg.setAttribute("width", window.innerWidth);
 svg.setAttribute("height", window.innerHeight);
+// window.addEventListener("resize", (e) => {
+//   console.log(window);
+//   svg.setAttribute("width", window.innerWidth);
+//   svg.setAttribute("height", window.innerHeight);
+// });
 
 const center = {
   x: Math.round(window.innerWidth / 2),
@@ -8,7 +13,7 @@ const center = {
 };
 
 const clockRadius = 250;
-const clockBorder = true;
+const clockBorder = false;
 
 function pointsOnCircle(deg, circleRadius = clockRadius) {
   function circleX(rad, circleRadius) {
