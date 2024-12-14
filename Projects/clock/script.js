@@ -37,9 +37,9 @@ for (let i = 0; i < 60; i++) {
   if (i % 5 === 0) {
     const refLine = `<line x1=${pointsOnCircle(deg, clockRadius - 35).x} y1=${
       pointsOnCircle(deg, clockRadius - 35).y
-    } x2=${pointsOnCircle(deg).x} y2=${
-      pointsOnCircle(deg).y
-    } style="stroke:red;stroke-width:4" />`;
+    } x2=${pointsOnCircle(deg, clockRadius - 2).x} y2=${
+      pointsOnCircle(deg, clockRadius - 2).y
+    } style="stroke:red;stroke-width:5" stroke-linecap="round"  />`;
     svg.innerHTML += refLine;
   } else {
     const refLine = `<line x1=${pointsOnCircle(deg, clockRadius - 15).x} y1=${
