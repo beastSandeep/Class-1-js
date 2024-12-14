@@ -8,31 +8,45 @@ const center = {
 };
 
 const clockRadius = 250;
+const clockBorder = true;
 
-function circleX(rad) {
-  return center.x + clockRadius * Math.sin(rad);
-}
-function circleY(rad) {
-  return center.y + clockRadius * Math.cos(rad);
-}
+function pointsOnCircle(deg, circleRadius = clockRadius) {
+  function circleX(rad, circleRadius) {
+    return center.x + circleRadius * Math.sin(rad);
+  }
+  function circleY(rad, circleRadius) {
+    return center.y + circleRadius * Math.cos(rad);
+  }
 
-function pointsOnCircle(deg) {
   const radian = Math.PI - (deg * Math.PI) / 180;
 
-  return { x: circleX(radian), y: circleY(radian) };
+  return { x: circleX(radian, circleRadius), y: circleY(radian, circleRadius) };
 }
 
 const origin = `<circle r="3" cx=${center.x} cy=${center.y} fill="white" />`;
-const circle = `<circle r=${clockRadius} cx=${center.x} cy=${center.y} fill="none" stroke="green" stroke-width="3" />`;
+const circle = `<circle r=${clockRadius} cx=${center.x} cy=${
+  center.y
+} fill="none" ${clockBorder ? 'stroke="white" stroke-width="1"' : ""} />`;
 
 svg.innerHTML += origin;
 svg.innerHTML += circle;
 
-const parts = 12;
-for (let i = 0; i < parts; i++) {
-  const deg = (360 * i) / parts;
-  const refLine2 = `<line x1=${center.x} y1=${center.y} x2=${
-    pointsOnCircle(deg).x
-  } y2=${pointsOnCircle(deg).y} style="stroke:purple;stroke-width:2" />`;
-  svg.innerHTML += refLine2;
+for (let i = 0; i < 60; i++) {
+  const deg = (360 * i) / 60;
+
+  if (i % 5 === 0) {
+    const refLine = `<line x1=${pointsOnCircle(deg, clockRadius - 35).x} y1=${
+      pointsOnCircle(deg, clockRadius - 35).y
+    } x2=${pointsOnCircle(deg).x} y2=${
+      pointsOnCircle(deg).y
+    } style="stroke:red;stroke-width:4" />`;
+    svg.innerHTML += refLine;
+  } else {
+    const refLine = `<line x1=${pointsOnCircle(deg, clockRadius - 15).x} y1=${
+      pointsOnCircle(deg, clockRadius - 15).y
+    } x2=${pointsOnCircle(deg).x} y2=${
+      pointsOnCircle(deg).y
+    } style="stroke:white;stroke-width:2" />`;
+    svg.innerHTML += refLine;
+  }
 }
