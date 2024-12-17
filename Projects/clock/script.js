@@ -14,9 +14,9 @@ const center = {
 
 const clockRadius = 250;
 const clockBorder = false;
-const digits = false;
+const digits = true;
 
-const origin = `<circle id="origin" r="3" cx=${center.x} cy=${center.y} fill="white" />`;
+const origin = `<circle id="origin" r="5" cx=${center.x} cy=${center.y} fill="white" />`;
 
 const circle = `<circle r=${clockRadius} cx=${center.x} cy=${
   center.y
@@ -65,7 +65,14 @@ for (let i = 0; i < 60; i++) {
 
   if (i % 5 === 0) {
     if (digits) {
-      console.log(i);
+      const digit = `<text x=${
+        pointsOnCircle(deg, clockRadius).x - 15 * Math.abs(Math.cos(deg / 2))
+      } y=${
+        pointsOnCircle(deg, clockRadius).y + 15 * Math.abs(Math.cos(deg / 2))
+      } fill="none" stroke="red" font-size="30">${
+        i / 5 === 0 ? "12" : i / 5
+      }</text>`;
+      svg.innerHTML += digit;
     } else {
       const refLine = `<line x1=${pointsOnCircle(deg, clockRadius - 35).x} y1=${
         pointsOnCircle(deg, clockRadius - 35).y
@@ -83,8 +90,13 @@ for (let i = 0; i < 60; i++) {
     svg.innerHTML += refLine;
   }
 }
+const date = new Date();
 
-let rotation = { s: 0, m: 0, h: 0 };
+let rotation = {
+  s: (360 / 60) * date.getSeconds(),
+  m: (360 / 60) * (date.getMinutes() + date.getSeconds() / 60),
+  h: (360 / 12) * (date.getHours() + date.getMinutes() / 60),
+};
 
 svg.innerHTML += hands();
 setTimeout(() => {
@@ -94,16 +106,12 @@ setTimeout(() => {
   document.getElementById("origin").remove();
 }, 1000);
 
-const date = new Date();
 // console.log(date.getHours(), date.getMinutes(), date.getSeconds());
-rotation.s += (360 / 60) * date.getSeconds() + 360 / 60;
+rotation.s += 360 / 60;
 
-rotation.m +=
-  (360 / 60) * (date.getMinutes() + date.getSeconds() / 60) + 360 / (60 * 60);
+rotation.m += 360 / (60 * 60);
 
-rotation.h +=
-  (360 / 12) * (date.getHours() + date.getMinutes() / 60) +
-  360 / (60 * 60 * 12);
+rotation.h += 360 / (60 * 60 * 12);
 let firstTime = true;
 
 setInterval(() => {
