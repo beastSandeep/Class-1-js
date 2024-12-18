@@ -14,7 +14,7 @@ const center = {
 
 const clockRadius = 250;
 const clockBorder = false;
-const digits = true;
+const digits = false;
 
 const origin = `<circle id="origin" r="5" cx=${center.x} cy=${center.y} fill="white" />`;
 
