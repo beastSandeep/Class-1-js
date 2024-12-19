@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lobster", serif;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 416px;
+  gap: 4px;
+}
+
+.cell {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.first {
+  background-color: black;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 150ms ease-in-out;
+}
+
+.second {
+  background-color: orangered;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 150ms ease-in-out;
+}
+
+.hidden {
+  transform: rotateY(90deg);
+  max-height: 0;
+  overflow: hidden;
+}
+.stat {
+  position: absolute;
+  color: red;
+  bottom: 100px;
+  font-size: 50px;
+  font-weight: bold;
+}
