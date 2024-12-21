@@ -11,9 +11,15 @@
         box-sizing: border-box;
       }
     </style>
-    <script src="index.js" defer></script>
+    <script src="./2.creatingShpapes.js" defer></script>
   </head>
   <body>
     <canvas id="canvas" width="600" height=600"></canvas>
+
+    <script>
+      const c = document.getElementById("canvas")
+      c.setAttribute("width",window.innerWidth)
+      c.setAttribute("height",window.innerHeight)
+    </script>
   </body>
 </html>
