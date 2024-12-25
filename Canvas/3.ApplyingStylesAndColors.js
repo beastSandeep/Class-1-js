@@ -152,4 +152,72 @@
 
 // 4. Gradients:- Just like any normal drawing program, we can fill and stroke shapes using linear, radial and conic gradients. We create a CanvasGradient object by using one of the following methods. We can then assign this object to the fillStyle or strokeStyle properties.
 
-// createLinearGradient(x1, y1, x2, y2):-
+// createLinearGradient(x1, y1, x2, y2):- Creates a linear gradient object with a starting point of (x1, y1) and an end point of (x2, y2).
+
+// Example:-
+// const lineargradient = ctx.createLinearGradient(0, 0, 150, 150);
+// lineargradient.addColorStop(0, "white");
+// lineargradient.addColorStop(1, "black");
+// ctx.fillStyle = lineargradient;
+
+// function draw() {
+//   const ctx = document.getElementById("canvas").getContext("2d");
+
+//   // Create gradients
+//   const linGrad = ctx.createLinearGradient(0, 0, 0, 150);
+//   linGrad.addColorStop(0, "#00ABEB");
+//   linGrad.addColorStop(0.5, "#fff");
+//   linGrad.addColorStop(0.5, "#26C000");
+//   linGrad.addColorStop(1, "#fff");
+
+//   const linGrad2 = ctx.createLinearGradient(0, 50, 0, 95);
+//   linGrad2.addColorStop(0.5, "#000");
+//   linGrad2.addColorStop(1, "rgb(0 0 0 / 0%)");
+
+//   // assign gradients to fill and stroke styles
+//   ctx.fillStyle = linGrad;
+//   ctx.strokeStyle = linGrad2;
+
+//   // draw shapes
+//   ctx.fillRect(10, 10, 130, 130);
+//   ctx.strokeRect(50, 50, 50, 50);
+// }
+// draw();
+
+// createRadialGradient(x1, y1, r1, x2, y2, r2):- Creates a radial gradient. The parameters represent two circles, one with its center at (x1, y1) and a radius of r1, and the other with its center at (x2, y2) with a radius of r2.
+
+// function draw() {
+//   const ctx = document.getElementById("canvas").getContext("2d");
+
+//   // Create gradients
+//   const radGrad = ctx.createRadialGradient(45, 45, 10, 52, 50, 30);
+//   radGrad.addColorStop(0, "#A7D30C");
+//   radGrad.addColorStop(0.9, "#019F62");
+//   radGrad.addColorStop(1, "rgb(1 159 98 / 0%)");
+
+//   const radGrad2 = ctx.createRadialGradient(105, 105, 20, 112, 120, 50);
+//   radGrad2.addColorStop(0, "#FF5F98");
+//   radGrad2.addColorStop(0.75, "#FF0188");
+//   radGrad2.addColorStop(1, "rgb(255 1 136 / 0%)");
+
+//   const radGrad3 = ctx.createRadialGradient(95, 15, 15, 102, 20, 40);
+//   radGrad3.addColorStop(0, "#00C9FF");
+//   radGrad3.addColorStop(0.8, "#00B5E2");
+//   radGrad3.addColorStop(1, "rgb(0 201 255 / 0%)");
+
+//   const radGrad4 = ctx.createRadialGradient(0, 150, 50, 0, 140, 90);
+//   radGrad4.addColorStop(0, "#F4F201");
+//   radGrad4.addColorStop(0.8, "#E4C700");
+//   radGrad4.addColorStop(1, "rgb(228 199 0 / 0%)");
+
+//   // draw shapes
+//   ctx.fillStyle = radGrad4;
+//   ctx.fillRect(0, 0, 150, 150);
+//   ctx.fillStyle = radGrad3;
+//   ctx.fillRect(0, 0, 150, 150);
+//   ctx.fillStyle = radGrad2;
+//   ctx.fillRect(0, 0, 150, 150);
+//   ctx.fillStyle = radGrad;
+//   ctx.fillRect(0, 0, 150, 150);
+// }
+// draw();
