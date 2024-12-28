@@ -50,6 +50,8 @@
 
 // -------------------------------------------------------------------------------
 
+// how to controll canvas element using event listners
+
 const ctx = document.getElementById("canvas").getContext("2d");
 
 const cursor = { x: 0, y: 0 };
