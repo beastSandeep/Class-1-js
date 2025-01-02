@@ -4,7 +4,7 @@ canvas.height = window.innerHeight - 5;
 
 const ctx = canvas.getContext("2d");
 
-const speed = 2;
+const speed = 5;
 
 const ball = {
   x: Math.floor(window.innerWidth / 2),
@@ -38,16 +38,19 @@ function draw() {
   ball.draw();
   ball.x += ball.vx;
   ball.y += ball.vy;
+  // accelerations
+  ball.vy *= 0.99;
+  ball.vy += 0.25;
 
   if (ball.x + ball.vx > boundry.maxX || ball.x + ball.vx < boundry.minX) {
     ball.vx = -ball.vx;
     // color chage
-    ball.hue += 10;
+    ball.hue += Math.random() * 10;
   }
   if (ball.y + ball.vy > boundry.maxY || ball.y + ball.vy < boundry.minY) {
     ball.vy = -ball.vy;
     // color chage
-    ball.hue += 10;
+    ball.hue += Math.random() * 10;
   }
 
   requestAnimationFrame(draw);

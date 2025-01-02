@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balck Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="bg-black relative">
+    <!-- tool bar -->
+    <section
+      class="fixed top-4 left-[35%] text-white bg-slate-500/40 flex py-1 px-3 gap-4 justify-center w-fit rounded-lg"
+    >
+      <!-- mouse pointer -->
+      <button
+        id="pointer"
+        class="transition-all duration-200 bg-transparent hover:bg-slate-200/50 p-2 rounded-lg"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59"
+          />
+        </svg>
+      </button>
+
+      <!-- pen -->
+      <button
+        id="pen"
+        class="transition-all duration-200 bg-transparent hover:bg-slate-200/50 p-2 rounded-lg"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
+          />
+        </svg>
+      </button>
+
+      <!-- arrow -->
+      <button
+        id="arrow"
+        class="transition-all duration-200 bg-transparent hover:bg-slate-200/50 p-2 rounded-lg"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+          />
+        </svg>
+      </button>
+
+      <!-- eraser -->
+      <button
+        id="eraser"
+        class="transition-all duration-200 bg-transparent hover:bg-slate-200/50 p-2 rounded-lg"
+      >
+        <img
+          class="invert"
+          width="24"
+          height="24"
+          src="https://img.icons8.com/ios/50/eraser.png"
+          alt="eraser"
+        />
+      </button>
+    </section>
+
+    <canvas id="canvas"></canvas>
+  </body>
+</html>
