@@ -31,21 +31,25 @@ function colorChanger(id) {
 pointer.addEventListener("click", () => {
   activeToolId = 1;
   colorChanger(activeToolId);
+  canvas.style.cursor = "move";
 });
 
 pen.addEventListener("click", () => {
   activeToolId = 2;
   colorChanger(activeToolId);
+  canvas.style.cursor = "crosshair";
 });
 
 arrow.addEventListener("click", () => {
   activeToolId = 3;
   colorChanger(activeToolId);
+  canvas.style.cursor = "auto";
 });
 
 eraser.addEventListener("click", () => {
   activeToolId = 4;
   colorChanger(activeToolId);
+  canvas.style.cursor = "auto";
 });
 
 function init() {
