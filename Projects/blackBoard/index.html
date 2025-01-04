@@ -8,6 +8,14 @@
       .active {
         outline: 3px solid rgb(204, 15, 185);
       }
+
+      #cursor {
+        position: absolute;
+        border: 1px solid white;
+        width: 50px;
+        height: 50px;
+        display: none;
+      }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
@@ -108,8 +116,8 @@
           <h3 class="text-xs text-gray-200">Strokes</h3>
           <div id="stroke" class="flex gap-2 pt-2">
             <button
-              class="p-3 bg-[#D3D3D3] rounded-md"
-              data-color="rgba(211, 211, 211, alpha)"
+              class="p-3 bg-[#E1E1E1] rounded-md"
+              data-color="rgba(225, 225, 225, alpha)"
             ></button>
             <button
               class="p-3 bg-[#FF8383] rounded-md"
@@ -135,8 +143,8 @@
           <h3 class="text-xs text-gray-200">Backgrounds</h3>
           <div id="background" class="flex gap-2 pt-2">
             <button
-              class="p-3 bg-[#d3d3d3] rounded-md"
-              data-color="rgba(211, 211, 211, alpha)"
+              class="p-3 bg-[#E1E1E1] rounded-md"
+              data-color="rgba(225, 225, 225, alpha)"
             ></button>
             <button
               class="p-3 bg-[#FF8383] rounded-md"
@@ -163,7 +171,7 @@
           <div id="strokeWidth" class="flex gap-2 pt-2">
             <button
               class="p-1 bg-white rounded-md stroke-gray-700"
-              data-width="1"
+              data-width="0.3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +185,7 @@
             </button>
             <button
               class="p-1 bg-white rounded-md stroke-gray-700"
-              data-width="1.7"
+              data-width="1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +199,7 @@
             </button>
             <button
               class="p-1 bg-white rounded-md stroke-gray-700"
-              data-width="2.5"
+              data-width="1.5"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -213,7 +221,7 @@
             type="range"
             step="5"
             id="opacity"
-            value="100"
+            value="70"
             min="40"
             max="100"
           />
@@ -222,5 +230,7 @@
     </main>
 
     <canvas id="canvas" class="block"></canvas>
+
+    <div id="cursor" class="pointer-events-none"></div>
   </body>
 </html>

@@ -11,10 +11,12 @@ const pen = document.getElementById("pen");
 const arrow = document.getElementById("arrow");
 const eraser = document.getElementById("eraser");
 
+const cursor = document.getElementById("cursor");
+
 let activeStroke = 0;
 let activeBackground = 0;
 let activeStrokeWidth = 0;
-let opacity = 100;
+let opacity = 70;
 
 const strokes = document.querySelectorAll("#stroke > button");
 strokes.forEach((btn, index) => {
@@ -52,8 +54,8 @@ const tools = [pointer, pen, arrow, eraser];
 
 let activeToolId = 2;
 let dragging = false; // not clicked
-let radius = 2;
-const lineWidth = 5;
+let lineWidth = 5;
+let radius = lineWidth / 2;
 
 ctx.lineCap = ctx.lineJoin = "round";
 
@@ -67,39 +69,53 @@ function colorChanger(id) {
   });
 }
 
+let stepSize = 5;
+let previous = { x: 0, y: 0 };
+
 function drawLine(x, y) {
-  ctx.lineTo(x, y);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.lineTo(x, y);
-  // ctx.arc(x, y, radius, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.moveTo(x, y);
+  const distant = Math.sqrt((previous.x - x) ** 2 + (previous.y - y) ** 2);
+
+  if (distant > stepSize) {
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    // ctx.arc(x, y, radius, 0, Math.PI * 2);
+    // ctx.fill();
+    ctx.moveTo(x, y);
+    previous.x = x;
+    previous.y = y;
+  }
+}
+
+function eraseLine(x, y) {
+  ctx.clearRect(x, y, 50, 50);
 }
 
 pointer.addEventListener("click", () => {
   activeToolId = 1;
   colorChanger(activeToolId);
   canvas.style.cursor = "move";
+  cursor.style.display = "none";
 });
 
 pen.addEventListener("click", () => {
   activeToolId = 2;
   colorChanger(activeToolId);
   canvas.style.cursor = "crosshair";
+  cursor.style.display = "none";
 });
 
 arrow.addEventListener("click", () => {
   activeToolId = 3;
   colorChanger(activeToolId);
   canvas.style.cursor = "auto";
+  cursor.style.display = "none";
 });
 
 eraser.addEventListener("click", () => {
   activeToolId = 4;
   colorChanger(activeToolId);
-  canvas.style.cursor = "auto";
+  cursor.style.display = "block";
 });
 
 canvas.addEventListener("mouseleave", () => {
@@ -120,6 +136,7 @@ canvas.addEventListener("mousemove", (e) => {
     "alpha",
     opacity / 100
   );
+
   ctx.fillStyle = backgrounds[activeBackground].dataset.color.replace(
     "alpha",
     opacity / 100
@@ -131,6 +148,16 @@ canvas.addEventListener("mousemove", (e) => {
   if (dragging) {
     if (activeToolId === 2) {
       drawLine(e.clientX, e.clientY);
+    }
+    if (activeToolId === 4) {
+      cursor.style.top = e.clientY - 25 + "px";
+      cursor.style.left = e.clientX - 25 + "px";
+      eraseLine(e.clientX, e.clientY);
+    }
+  } else {
+    if (activeToolId === 4) {
+      cursor.style.top = e.clientY - 25 + "px";
+      cursor.style.left = e.clientX - 25 + "px";
     }
   }
 });
