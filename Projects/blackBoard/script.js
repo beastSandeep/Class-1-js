@@ -72,6 +72,8 @@ function colorChanger(id) {
 let stepSize = 5;
 let previous = { x: 0, y: 0 };
 
+function drawArrow(x, y) {}
+
 function drawLine(x, y) {
   const distant = Math.sqrt((previous.x - x) ** 2 + (previous.y - y) ** 2);
 
@@ -85,10 +87,6 @@ function drawLine(x, y) {
     previous.x = x;
     previous.y = y;
   }
-}
-
-function eraseLine(x, y) {
-  ctx.clearRect(x, y, 50, 50);
 }
 
 pointer.addEventListener("click", () => {
@@ -152,7 +150,11 @@ canvas.addEventListener("mousemove", (e) => {
     if (activeToolId === 4) {
       cursor.style.top = e.clientY - 25 + "px";
       cursor.style.left = e.clientX - 25 + "px";
-      eraseLine(e.clientX, e.clientY);
+      ctx.clearRect(e.clientX, e.clientY, 50, 50);
+    }
+
+    if (activeToolId === 3) {
+      drawArrow(e.clientX, e.clientY);
     }
   } else {
     if (activeToolId === 4) {
